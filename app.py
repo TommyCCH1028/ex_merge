@@ -10,12 +10,12 @@ def get_todos():
     return jsonify(todos), 200
 
 @app.route('/todos', methods=['POST'])
-def add_todo():
+def add_item():
     todo = request.json
     todos.append(todo)
     return jsonify(todo), 201
 
-@app.route('/todos/<int:todo_id>', methods=['PUT'])
+@app.route('/todos/<int:todo_id>', methods['PUT'])
 def update_todo(todo_id):
     if todo_id >= len(todos) or todo_id < 0:
         return jsonify({'error': 'Todo not found'}), 404
